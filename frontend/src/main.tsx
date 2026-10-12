@@ -40,7 +40,11 @@ queryClient.getMutationCache().subscribe(event => {
 const trpcClient = trpc.createClient({
   links: [
     httpBatchLink({
-      url: "/api/trpc",
+      // In development: relative /api/trpc (same-origin Express server)
+      // In production:  absolute URL of the deployed Vercel backend
+      url: import.meta.env.VITE_API_URL
+        ? `${import.meta.env.VITE_API_URL}/api/trpc`
+        : "/api/trpc",
       transformer: superjson,
       headers() {
         // Preview auto-login fallback: when the browser blocks iframe cookies
