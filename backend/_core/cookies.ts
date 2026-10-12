@@ -26,6 +26,7 @@ export function getSessionCookieOptions(
 ): Pick<CookieOptions, "domain" | "httpOnly" | "path" | "sameSite" | "secure"> {
   const isSecure = isSecureRequest(req);
   return {
+    domain: undefined,
     httpOnly: true,
     path: "/",
     sameSite: isSecure ? "none" : "lax",
