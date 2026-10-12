@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "comment": "Root vercel.json — used when deploying the FRONTEND from the repo root. The backend has its own vercel.json inside backend/.",
   "buildCommand": "pnpm build:frontend",
   "outputDirectory": "dist/public",
   "framework": "vite",
